@@ -1,0 +1,8 @@
+# cURL commands related to Foo docker container
+# written with REST HTTP
+
+@hostanme = localhost
+@port = 3000
+
+#### GET /v1/meta
+curl -X GET http://{{hostanme}}:{{port}}/v1/meta
