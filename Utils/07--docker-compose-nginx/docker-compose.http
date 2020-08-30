@@ -1,0 +1,19 @@
+# cURL commands related to the Docker Compose environment
+# written with REST HTTP
+
+@hostname = localhost
+@foo_port = 8300
+@bar_port = 8400
+
+### Foo server
+### GET /v1/meta
+curl -X GET http://{{hostname}}:{{foo_port}}/v1/meta
+
+# --------------------------------------------------------
+
+### Bar server
+### GET /v1/meta
+curl -X GET http://{{hostname}}:{{bar_port}}/v1/meta
+
+### GET /v1/info
+curl -X GET http://{{hostname}}:{{bar_port}}/v1/info

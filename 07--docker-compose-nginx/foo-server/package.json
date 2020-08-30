@@ -1,0 +1,18 @@
+{
+	"name": "foo-server",
+	"version": "1.0.0",
+	"description": "a simple express server to respond with server information",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"keywords": [
+		"foo-server",
+		"foo"
+	],
+	"author": "athiththan11",
+	"license": "MIT",
+	"dependencies": {
+		"express": "^4.17.1"
+	}
+}

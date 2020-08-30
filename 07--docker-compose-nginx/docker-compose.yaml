@@ -1,0 +1,47 @@
+# -------------------
+# docker-compose to build and run both Foo and Bar server at once
+# -------------------
+
+version: '3'
+services:
+
+  # defining the Foo server and the build context
+  foo-service:
+    build:
+      dockerfile: Dockerfile
+      context: ./foo-server
+    # port mapping configurations are commented because
+    # the in nginx the routing configurations are configured
+    # ports:
+    #   - 3000:3000
+    # environment variables
+    environment:
+      - FOO_SERVER_ENV_MESSAGE="A custom message set using the environment variable"
+
+  # defining the Bar server and the build context
+  bar-service:
+    build:
+      dockerfile: Dockerfile
+      context: ./bar-server
+    # port mapping configurations are commented because
+    # the in nginx the routing configurations are configured
+    # ports:
+    #   - 4000:4000
+    environment:
+      - BAR_SERVER_ENV_MESSAGE="Another custom message set using the environment variable"
+
+  # defining the nginx server and the build context
+  nginx-service:
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    restart: always
+    # start the nginx service after starting both foo and ber servers
+    depends_on:
+      - foo-service
+      - bar-service
+    
+    # port mapping configurations
+    ports:
+      - 8300:8300
+      - 8400:8400
