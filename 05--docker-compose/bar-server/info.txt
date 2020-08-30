@@ -1,0 +1,3 @@
+Server: Bar Server
+Tech Stack: Express & NodeJS
+Meta: Bar--1.0.0
