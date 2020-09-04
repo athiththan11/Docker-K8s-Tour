@@ -1,0 +1,8 @@
+# cURL commands related to Foo server pod
+# written with REST HTTP
+
+@hostname = localhost
+@port = 30050
+
+### GET /v1/meta
+curl -X GET http://{{hostname}}:{{port}}/v1/meta

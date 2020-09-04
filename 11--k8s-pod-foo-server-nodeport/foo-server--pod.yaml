@@ -1,0 +1,30 @@
+# -------------------
+# yaml configuration to create a pod for the Foo server
+# -------------------
+
+apiVersion: v1
+# Pod configuration
+kind: Pod
+
+metadata:
+  # the namespace is referred
+  namespace: foo-nspace
+  name: foo-service
+  labels:
+    name: foo-service
+
+spec:
+  # container configurations. the image is pulled from the DockerHub
+  containers:
+  - name: foo-service
+    image: athiththan11/foo-server:1.0.0
+
+    # resource configurations for containers
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "125m"
+    
+    # port configurations
+    ports:
+      - containerPort: 3000
