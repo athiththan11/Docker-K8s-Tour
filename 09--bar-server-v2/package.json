@@ -1,0 +1,18 @@
+{
+	"name": "bar-server",
+	"version": "2.0.0",
+	"description": "another simple express server to respond with file reads",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"keywords": [
+		"bar-server",
+		"bar"
+	],
+	"author": "athiththan11",
+	"license": "MIT",
+	"dependencies": {
+		"express": "^4.17.1"
+	}
+}
