@@ -1,0 +1,28 @@
+# -------------------
+# yaml configuration to define nginx ingress controller
+# -------------------
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+
+metadata:
+  # the namespace
+  namespace: foo-nspace
+  name: foo-ingress
+
+  # nginx annotation configurations
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  
+spec:
+  # nginx rules
+  rules:
+    - http:
+        paths:
+          - path: /
+
+            # backend server configurations
+            # the cluser-ip service is referenced with the configured port
+            backend:
+              serviceName: foo-service-cip
+              servicePort: 3050

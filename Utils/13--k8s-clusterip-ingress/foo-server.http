@@ -1,0 +1,9 @@
+# cURL commands related to Foo server pod
+# written with REST HTTP
+
+# replace the hostname with the k8s cluster ip (e.g. minikube ip)
+@hostname = localhost
+@port = 80
+
+### GET /v1/meta
+curl -X GET http://{{hostname}}:{{port}}/v1/meta
