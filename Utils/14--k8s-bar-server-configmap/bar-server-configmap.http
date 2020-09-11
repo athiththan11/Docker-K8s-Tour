@@ -1,0 +1,12 @@
+# cURL commands related to Bar server v2
+# written with REST HTTP
+
+# replace the hostname with the k8s cluster ip (e.g. minikube ip)
+@hostname = 192.168.99.101
+@port = 30040
+
+### GET /v1/meta
+curl -X GET http://{{hostname}}:{{port}}/v1/meta
+
+### GET /v1/info
+curl -X GET http://{{hostname}}:{{port}}/v1/info

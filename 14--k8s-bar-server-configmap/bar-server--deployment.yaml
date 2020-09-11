@@ -1,0 +1,56 @@
+# -------------------
+# yaml configuration to create a deployment for the Bar server
+# -------------------
+
+apiVersion: apps/v1
+# Deployment configuration
+kind: Deployment
+
+metadata:
+  # the namespace is referred
+  namespace: bar-nspace
+  name: bar-service-deployment
+  labels:
+    name: bar-service-deployment
+
+spec:
+  selector:
+    matchLabels:
+      name: bar-service
+
+  # the template follows the same structure as the Pod configurations
+  template:
+    metadata:
+      labels:
+        name: bar-service
+    spec:
+      # container configurations. the image is pulled from the DockerHub
+      containers:
+      - name: bar-service
+        image: athiththan11/bar-server:2.0.0
+
+        # resource configurations for containers
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "125m"
+        
+        # port configurations
+        ports:
+          - containerPort: 4000
+
+        # environmen var configurations
+        env:
+          - name: BAR_SERVER_ENV_MESSAGE
+            value: Another custom message set using the environment variable
+        
+        # volume mounts and config mounts
+        volumeMounts:
+          - name: info-txt-volume
+            mountPath: /usr/artifacts
+      
+      # volume configurations
+      volumes:
+        - name: info-txt-volume
+          configMap:
+            name: bar-info-cmap

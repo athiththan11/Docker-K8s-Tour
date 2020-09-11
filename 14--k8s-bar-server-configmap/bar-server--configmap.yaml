@@ -1,0 +1,16 @@
+# -------------------
+# yaml configuration to create a config map for the Bar server's info.txt artifact
+# -------------------
+
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  # namespace 
+  namespace: bar-nspace
+  name: bar-info-cmap
+
+data:
+  # info.txt data and the content
+  info.txt: |-
+    An updated info.txt content from the Kubernetes ConfigMap
