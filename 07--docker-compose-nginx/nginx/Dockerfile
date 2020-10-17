@@ -7,4 +7,4 @@ FROM nginx
 
 # copy the default.conf from the local directory and place it inside the
 # container
-COPY ./default.con /etc/nginx/conf.d/default.conf
+COPY ./default.conf /etc/nginx/conf.d/default.conf
