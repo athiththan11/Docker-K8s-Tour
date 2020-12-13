@@ -39,3 +39,15 @@ docker-compose up [-d] --build
 ```sh
 docker-compose down
 ```
+
+### Logs
+
+```sh
+docker-compose logs -f
+```
+
+### Stop
+
+```sh
+docker-compose stop
+```

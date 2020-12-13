@@ -17,3 +17,21 @@ docker-compose up [-d] --build
 ```sh
 docker-compose down
 ```
+
+### Start
+
+```sh
+docker-compose start
+```
+
+### Logs
+
+```sh
+docker-compose logs -f
+```
+
+### Stop
+
+```sh
+docker-compose stop
+```

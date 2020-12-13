@@ -43,3 +43,13 @@ docker push <image-name>
 ```sh
 docker push athiththan11/foo-server:1.0.0
 ```
+
+### Docker Stop
+
+```sh
+docker stop <container-name>
+```
+
+```sh
+docker stop foo-server-container
+```
