@@ -6,9 +6,9 @@ This repo contains the `yaml` configurations developed to deploy a Deployment fo
 
 ### ConfigMap
 
-`ConfigMap` allows to decouple the configuration artifacts from image content. Which in result allows Kubernetes to make the containarized applications portable without needing to worry about the configurations.
+`ConfigMap` allows to decouple the configuration artifacts from image content. Which in result allows Kubernetes to make the containerized applications portable without needing to worry about the configurations.
 
-In this sample, we have decoupled the `info.txt` artifact of the `Bar` serverr to a `ConfigMap` and mounted as a volume mount in the `Deployment` configurations.
+In this sample, we have decoupled the `info.txt` artifact of the `Bar` server to a `ConfigMap` and mounted as a volume mount in the `Deployment` configurations.
 
 > Please note that the volume mount specified in the `deployment.yaml` points to the `/usr/artifacts` directory. The `Bar` server uses this directory to copy the contents to the actual server directory. Therefore, the changes done to the `info.txt` will be reflected once the `Bar` pods are restarted.
 

@@ -15,7 +15,7 @@ Port: 3000
 ```json
 {
     "server": "Foo Server",
-    "env_message": "a custom messagee set via the FOO_SERVER_ENV_MESSAGE environment var"
+    "env_message": "a custom message set via the FOO_SERVER_ENV_MESSAGE environment var"
 }
 ```
 

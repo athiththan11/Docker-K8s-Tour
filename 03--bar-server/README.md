@@ -17,7 +17,7 @@ Port: 4000
 ```json
 {
     "server": "Bar Server",
-    "env_message": "a custom messagee set via the BAR_SERVER_ENV_MESSAGE environment var"
+    "env_message": "a custom message set via the BAR_SERVER_ENV_MESSAGE environment var"
 }
 ```
 
