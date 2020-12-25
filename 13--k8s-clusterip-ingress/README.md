@@ -15,8 +15,11 @@ kubectl apply -f foo-server--namespace.yaml
 # deploy the deployment configurations
 kubectl apply -f foo-server--deployment.yaml
 
-# deploy the nodeport configurations
+# deploy the cluster ip configurations
 kubectl apply -f foo-server--clusterip.yaml
+
+# deploy the ingress configurations
+kubectl apply -f foo--ingress.yaml
 ```
 
 ### Delete
