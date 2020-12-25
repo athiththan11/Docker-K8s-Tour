@@ -1,0 +1,25 @@
+# cURL commands related to Foo & Bar server Deployment
+# written with REST HTTP
+
+# replace the hostname with the k8s cluster ip (e.g. minikube ip)
+@hostname = localhost
+@port = 80
+
+# Ingress path is configured as /foo/(.*) to route the requests to the 
+# Foo Server
+
+### Foo Server
+### GET /v1/meta
+curl -X GET http://{{hostname}}:{{port}}/foo/v1/meta
+
+# ---------------------------------------------------------------
+
+# Ingress path is configured as /bar/(.*) to route the requests to the 
+# Foo Server
+
+### Bar Server
+### GET /v1/meta
+curl -X GET http://{{hostname}}:{{port}}/bar/v1/meta
+
+### GET /v1/info
+curl -X GET http://{{hostname}}:{{port}}/bar/v1/info

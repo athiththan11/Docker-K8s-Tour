@@ -1,0 +1,24 @@
+# -------------------
+# yaml configuration to define a ClusterIP service for the Foo server
+# -------------------
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  # the namespace is referred
+  namespace: foo-bar-nspace
+  name: foo-service-cip
+
+spec:
+  selector:
+    name: foo-service
+
+  # service type is ClusterIP
+  type: ClusterIP
+
+  ports:
+    # port that can be accessed by other nodes within the cluster
+  - port: 3050
+    # the target port points to the server's port
+    targetPort: 3000
