@@ -18,9 +18,9 @@ spec:
   type: NodePort
 
   ports:
-    # port that can be accessed from outside the cluster
+    # port is used to communicate within the cluster
   - port: 3050
     # the target port points to the server's port
     targetPort: 3000
-    # nodeport is used to communicate within the cluster
+    # nodePort that can be accessed from outside the cluster
     nodePort: 30050
