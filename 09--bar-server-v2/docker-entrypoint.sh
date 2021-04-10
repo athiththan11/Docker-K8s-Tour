@@ -8,7 +8,7 @@ echo 'Copying artifacts from /usr/artifacts directory to the server directory'
 cp -r /usr/artifacts/. /usr/app
 
 # change the directory to the /usr/app
-cd /app
+cd /usr/app
 
 # start the Bar server using the npm start command
 echo 'Starting Bar server'
