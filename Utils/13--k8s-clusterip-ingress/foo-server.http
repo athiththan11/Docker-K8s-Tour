@@ -2,6 +2,7 @@
 # written with REST HTTP
 
 # replace the hostname with the k8s cluster ip (e.g. minikube ip)
+# use kubernetes.docker.internal if you are using Windows Docker Desktop with WSL2
 @hostname = localhost
 @port = 80
 
