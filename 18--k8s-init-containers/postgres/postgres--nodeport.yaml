@@ -1,0 +1,22 @@
+# -------------------
+# yaml configuration to define a NodePort service for the Foo server
+# -------------------
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  # the namespace is referred
+  namespace: foo-nspace
+  name: postgres
+
+spec:
+  selector:
+    name: postgres
+
+  # service type is NodePort
+  type: NodePort
+
+  ports:
+    # port is used to communicate within the cluster
+  - port: 5432

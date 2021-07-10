@@ -1,0 +1,26 @@
+# -------------------
+# yaml configuration to define a NodePort service for the Foo server
+# -------------------
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  # the namespace is referred
+  namespace: foo-nspace
+  name: foo-service-nport
+
+spec:
+  selector:
+    name: foo-service
+
+  # service type is NodePort
+  type: NodePort
+
+  ports:
+    # port is used to communicate within the cluster
+  - port: 3050
+    # the target port points to the server's port
+    targetPort: 3000
+    # nodePort that can be accessed from outside the cluster
+    nodePort: 30050

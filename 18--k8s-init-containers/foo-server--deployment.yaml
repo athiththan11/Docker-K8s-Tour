@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  namespace: foo-nspace
+  name: foo-service-deployment
+  labels:
+    name: foo-service-deployment
+
+spec:
+  selector:
+    matchLabels:
+      name: foo-service
+
+  template:
+    metadata:
+      labels:
+        name: foo-service
+    spec:
+      
+      # init container section to perform health check on Postgres instance. 
+      # Once that is up and running, start serving the requests
+      initContainers:
+        - name: postgres-checker
+          image: busybox:1.32
+          command:
+            - sh
+            - -c
+            - echo -e 'Checking for Postgre DB'; while ! nc -z postgres 5432; do sleep 1; echo '-'; done; echo -e 'Postgre DB connected';
+
+      containers:
+      - name: foo-service
+        image: athiththan11/foo-server:2.0.0
+
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "125m"
+
+        ports:
+        - containerPort: 3000
+          
+        env:
+          - name: FOO_SERVER_ENV_MESSAGE
+            value: A custom message set using the environment variable
+          - name: POSTGRES_DB
+            value: foo
+          - name: POSTGRES_USERNAME
+            value: postgres
+          - name: POSTGRES_PASSWORD
+            value: foo-password
+          - name: POSTGRES_HOST
+            value: postgres
+          - name: POSTGRES_PORT
+            value: '5432'
