@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  namespace: foo-nspace
+  name: postgres-config
+
+data:
+  init.sql: |-
+    CREATE TABLE meta (
+      ID SERIAL PRIMARY KEY,
+      MESSAGE VARCHAR (256)
+    );
+
+    INSERT INTO meta (message) VALUES ('Added from Init SQL Script');

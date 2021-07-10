@@ -1,0 +1,8 @@
+# -------------------
+# yaml configuration to define a namespace
+# -------------------
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: foo-nspace

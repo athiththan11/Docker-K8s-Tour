@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  namespace: foo-nspace
+  name: postgres
+
+spec:
+  selector:
+    matchLabels:
+      name: postgres
+
+  template:
+    metadata:
+      labels:
+        name: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:9.6.14
+
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+
+        ports:
+        - containerPort: 5432
+          
+        env:
+          - name: POSTGRES_DB
+            value: foo
+          - name: POSTGRES_PASSWORD
+            value: foo-password
+        
+        volumeMounts:
+          - mountPath: /docker-entrypoint-initdb.d
+            name: init-scripts
+      
+      volumes:
+        - name: init-scripts
+          configMap:
+            name: postgres-config
