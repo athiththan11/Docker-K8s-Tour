@@ -8,7 +8,7 @@ FROM node:alpine
 # set the working directory as /usr/app
 WORKDIR /usr/app
 
-# copy the package.json from the local directory (02--foo-server-docker) to the container
+# copy the package.json from the local directory (16--foo-server-v2) to the container
 COPY ./package.json ./
 
 # run npm install in the container to install the dependencies

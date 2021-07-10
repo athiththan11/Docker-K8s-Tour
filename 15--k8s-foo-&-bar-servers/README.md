@@ -30,5 +30,5 @@ kubectl apply -f foo-bar--ingress.yaml
 
 ```sh
 # single delete command to bring down the deployment referred by the namespace
-kubectl apply -f foo-bar--namespace.yaml
+kubectl delete -f foo-bar--namespace.yaml
 ```
